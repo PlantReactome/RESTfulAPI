@@ -39,7 +39,7 @@ public class GeneSetXMLExporter {
                             Map<String, String> parameters, 
                             OutputStream os) throws Exception {
         // Fetch human pathways only
-        GKInstance human = dba.fetchInstance(48887L);
+        GKInstance human = dba.fetchInstance(186860L);
         Collection<?> pathways = dba.fetchInstanceByAttribute(ReactomeJavaConstants.Pathway,
                                                               ReactomeJavaConstants.species,
                                                               "=",

@@ -222,7 +222,7 @@ public class RESTfulAPIResourceTest {
     @Test
     public void testPathwayHierarchy() throws Exception {
         String species[] = new String[] {
-                "Homo sapiens",
+                "Oryza sativa", // JP-PR
                 "Mus musculus",
                 "Gallus gallus"
         };
@@ -243,7 +243,7 @@ public class RESTfulAPIResourceTest {
     @Test
     public void testQueryFrontPageItems() throws Exception  {
         String species[] = new String[] {
-                "Homo sapiens",
+                "Oryza sativa", // JP-PR
                 "Mus musculus",
                 "Gallus gallus"
         };
@@ -452,9 +452,9 @@ public class RESTfulAPIResourceTest {
         prettyPrintXML(text);
         
         url = RESTFUL_URL + "listByQuery/Pathway";
-        text = callHttp(url, HTTP_POST, "species=48887");
+        text = callHttp(url, HTTP_POST, "species=186860");
 //        text = callHttp(url, HTTP_POST, "species=3042819");
-        System.out.println("\nOutput from listByQuery for species=48887:\n");
+        System.out.println("\nOutput from listByQuery for species=186860:\n");
         prettyPrintXML(text);
         
         url = RESTFUL_URL + "listByQuery/PathwayDiagram";
@@ -465,9 +465,9 @@ public class RESTfulAPIResourceTest {
     
     @Test
     public void testListByName() throws Exception {
-        String url = RESTFUL_URL + "listByName/Event/Apoptosis/Homo+sapiens";
+        String url = RESTFUL_URL + "listByName/Event/Apoptosis/Oryza+sativa"; // JP-PR
         String text = callHttp(url, HTTP_GET, "");
-        System.out.println("Query for Apoptosis for human");
+        System.out.println("Query for Apoptosis for rice"); // JP-PR
         prettyPrintXML(text);
         
         url = RESTFUL_URL + "listByName/Event/Apoptosis/null";

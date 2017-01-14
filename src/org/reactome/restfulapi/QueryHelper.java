@@ -225,7 +225,7 @@ public class QueryHelper {
         setMySQLAdaptor(dba);
         Collection<GKInstance> c = queryByNameAndSpecies(ReactomeJavaConstants.Event,
                                                          "Apoptosis",
-                                                         "Homo sapiens");
+                                                         "Oryza sativa");
         System.out.println("Total instances: " + c.size());
         for (GKInstance inst : c)
             System.out.println(inst);

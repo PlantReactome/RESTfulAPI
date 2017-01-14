@@ -534,7 +534,7 @@ public class APIControllerHelper {
             		"ReactionLikeEvent_To_PhysicalEntity r " + 
             		"WHERE e.id = p.id and p.id = r.physicalEntityId " + 
             		"AND r.reactionLikeEventId = pr.reactionLikeEventId "+
-            		"AND p.species = 'Homo sapiens'" +
+            		//"AND p.species = 'Homo sapiens'" + // JP-PR, open to all species
             		"AND e.externalIdentifier IN(";
             StringBuilder builder = new StringBuilder();
             for (String gene : genes) {
@@ -1114,7 +1114,7 @@ public class APIControllerHelper {
             Species human = null;
             for (GKInstance s : dbIdToInst.values()) {
                 Species converted = (Species) converter.createObject(s);
-                if (s.getDBID().equals(48887L))
+                if (s.getDBID().equals(186860L))
                     human = converted;
                 else
                     rtn.add(converted);
@@ -1160,7 +1160,8 @@ public class APIControllerHelper {
             return null;
         // Just in case
         if (speciesName == null || speciesName.equals(""))
-            speciesName = "Homo sapiens"; //TODO: This may need to be set in an external configuration in the future!
+        	speciesName = "Oryza sativa"; // JP-PR
+            //speciesName = "Homo sapiens"; //TODO: This may need to be set in an external configuration in the future!
         // Want to ignore cases
         speciesName = speciesName.toLowerCase();
         GKInstance frontPage = (GKInstance) c.iterator().next();
@@ -1327,7 +1328,7 @@ public class APIControllerHelper {
                             target = (GKInstance) s;
                             if(target.getDBID().equals(species.getDBID())){
                                 return converter.convert(orth);
-                            }else if(target.getDBID().equals(48887L)){
+                            }else if(target.getDBID().equals(186860L)){
                                 return getOrthologous(orth.getDBID().toString(), speciesId);
                             }
                         }
